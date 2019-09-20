@@ -68,9 +68,3 @@ export const getAuditionees = functions.https.onRequest(
     });
   }
 );
-
-export const helloWorld = functions.https.onRequest(
-  (req: functions.Request, res: functions.Response) => {
-    res.send("Hello from Firebase!");
-  }
-);
