@@ -91,6 +91,7 @@ export const getAuditionees = functions.https.onRequest(
           snapshot.forEach(doc => {
             auditionees.push({
               id: doc.id,
+              email: doc.data().email,
               name: doc.data().name,
               number: doc.data().number,
               picture: doc.data().picture,
