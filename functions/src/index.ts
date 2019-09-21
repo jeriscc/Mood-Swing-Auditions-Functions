@@ -43,6 +43,37 @@ export const postAuditionee = functions.https.onRequest(
   }
 );
 
+export const getAuditionee = functions.https.onRequest(
+  (req: functions.Request, res: functions.Response) => {
+    return cors(req, res, () => {
+      if (req.method !== "GET") {
+        return res.status(401).json({
+          message: "Not allowed"
+        });
+      }
+      const id = req.query.id;
+
+      return auditioneesRef
+        .doc(`${id}`)
+        .get()
+        .then(doc => {
+          if (!doc.exists) {
+            res.status(404).json({
+              message: "No document found"
+            });
+          } else {
+            res.status(200).json(doc.data());
+          }
+        })
+        .catch(err => {
+          res.status(err.code).json({
+            message: `Error getting document. ${err.message}`
+          });
+        });
+    });
+  }
+);
+
 export const getAuditionees = functions.https.onRequest(
   (req: functions.Request, res: functions.Response) => {
     return cors(req, res, () => {
