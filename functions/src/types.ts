@@ -1,22 +1,27 @@
 import * as Joi from "@hapi/joi";
 
 export type Auditionee = {
-  id: string;
+  id: string; // unique identification id of Auditionee
   name: string;
   number: Number;
   picture: string;
+  voice_part: string;
 };
 
 export const postSchema = Joi.object({
   name: Joi.string()
     .required(),
 
+  number: Joi.number()
+    .integer()
+    .required(),
+
   picture: Joi.string()
     .uri()
     .required(),
 
-  number: Joi.number()
-    .integer()
+  voice_part: Joi.string()
+    .valid('bass', 'bari', 'tenor', 'alto', 'mezzo', 'sop')
     .required()
 });
 

@@ -93,7 +93,8 @@ export const getAuditionees = functions.https.onRequest(
               id: doc.id,
               name: doc.data().name,
               number: doc.data().number,
-              picture: doc.data().picture
+              picture: doc.data().picture,
+              voice_part: doc.data().voice_part
             });
           });
           res.status(200).json(auditionees);
