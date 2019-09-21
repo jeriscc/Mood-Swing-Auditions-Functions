@@ -20,10 +20,10 @@ export const postAuditionee = functions.https.onRequest(
 
       const { error, value } = postSchema.validate(req.body);
 
-      if (error != null) {
+      if (error !== null) {
         console.log(error);
         return res.status(422).json({
-          message: "Invalid input: " + error
+          message: "Invalid input. " + error
         });
       }
 
@@ -78,7 +78,7 @@ export const getAuditionees = functions.https.onRequest(
   (req: functions.Request, res: functions.Response) => {
     return cors(req, res, () => {
       if (req.method !== "GET") {
-        return res.status(404).json({
+        return res.status(401).json({
           message: "Not allowed"
         });
       }
