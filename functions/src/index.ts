@@ -1,15 +1,9 @@
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
 import * as _cors from "cors";
+import { Auditionee, postSchema } from "./types";
 
 const cors = _cors({ origin: true });
-
-type Auditionee = {
-  id: string;
-  name: string;
-  number: Number;
-  picture: string;
-};
 
 admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();
@@ -23,15 +17,28 @@ export const postAuditionee = functions.https.onRequest(
           message: "Not allowed"
         });
       }
-      return auditioneesRef.add(req.body).then(ref => {
-        res.status(200).json({
-          message: "Added document with ID: " + ref.id,
+
+      const { error, value } = postSchema.validate(req.body);
+
+      if (error != null) {
+        console.log(error);
+        return res.status(422).json({
+          message: "Invalid input: " + error
+        });
+      }
+
+      return auditioneesRef
+        .add(value)
+        .then(ref => {
+          res.status(200).json({
+            message: "Added document with ID: " + ref.id
+          });
         })
-      }).catch(err => {
-        res.status(err.code).json({
-          message: `Error posting document. ${err.message}`
-        })
-      });
+        .catch(err => {
+          res.status(err.code).json({
+            message: `Error posting document. ${err.message}`
+          });
+        });
     });
   }
 );
@@ -63,7 +70,7 @@ export const getAuditionees = functions.https.onRequest(
         .catch(err => {
           res.status(err.code).json({
             message: `Error getting documents. ${err.message}`
-          })
+          });
         });
     });
   }
