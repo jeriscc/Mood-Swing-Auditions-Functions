@@ -139,7 +139,7 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-8.2.4.tgz#684a14f4ca35d46f44abc87dfc696e5e4fe8a020"
   integrity sha512-Ze5SDNt325yZvNO7s5C4fXDscjJ6dcqLFXJQ/M7dZRQCewuDj2iDUuBi6jLQt+APbW9RjjVEvLr35FXuOEqjow==
 
-"@hapi/joi@^16.1.4":
+"@hapi/joi@16.1.4":
   version "16.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/joi/-/joi-16.1.4.tgz#b039fe474a0ab838c1a90620c53a208fcef75d99"
   integrity sha512-m7ctezhxjob+dSpXnCNlgAj6rrEpdSsaWu3GWL3g1AybQCU36mlAo9IwGFJwIxD+oHgdO6mYyviYlaejX+qN6g==
@@ -254,7 +254,7 @@
     "@types/express-serve-static-core" "*"
     "@types/serve-static" "*"
 
-"@types/hapi__joi@*", "@types/hapi__joi@^15.0.4":
+"@types/hapi__joi@*", "@types/hapi__joi@15.0.4":
   version "15.0.4"
   resolved "https://registry.yarnpkg.com/@types/hapi__joi/-/hapi__joi-15.0.4.tgz#49e2e1e6da15ade0fdd6db4daf94aecb07bb391b"
   integrity sha512-VSS6zc7AIOdHVXmqKaGNPYl8eGrMvWi0R5pt3evJL3UdxO8XS28/XAkBXNyLQoymHxhMd4bF3o1U9mZkWDeN8w==
@@ -616,9 +616,9 @@ diff@^3.2.0:
   integrity sha512-A46qtFgd+g7pDZinpnwiRJtxbC1hpgf0uzP3iG89scHk0AUC7A1TGxf5OiiOUv/JMZR8GOt8hL900hV0bOy5xA==
 
 dot-prop@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-5.1.0.tgz#bdd8c986a77b83e3fca524e53786df916cabbd8a"
-  integrity sha512-n1oC6NBF+KM9oVXtjmen4Yo7HyAVWV2UUl50dCYJdw2924K6dX9bf9TTTWaKtYlRn0FEtxG27KS80ayVLixxJA==
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-5.2.0.tgz#c34ecc29556dc45f1f4c22697b6f4904e0cc4fcb"
+  integrity sha512-uEUyaDKoSQ1M4Oq8l45hSE26SnTxL6snNnqvK/VWx5wJhmff5z0FUVJDKDanor/6w3kzE3i7XZOk+7wC0EXr1A==
   dependencies:
     is-obj "^2.0.0"
 
